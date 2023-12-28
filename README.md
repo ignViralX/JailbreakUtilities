@@ -1,7 +1,6 @@
 # Jailbreak Utilities
 [![Python 3.12.1](https://img.shields.io/badge/python-3.12.1-blue.svg)](https://www.python.org/downloads/release/python-3121/)
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/ignViralX/JailbreakUtilities)
-![GitHub issues](https://img.shields.io/github/issues/ignViralX/JailbreakUtilities)
 ![GitHub License](https://img.shields.io/github/license/ignViralX/JailbreakUtilities)
 
 This repository contains simple API wrappers and other tools for developing applications for the Jailbreak game. Coded entirely in Python utilizing JSON for storage. You can utilize this in programs like private discord bots for your crew to use and be more informed about the state of the game, or a website displaying leaderboards; whatever you want! Everything here is licensed under the MIT license so you may take and use whatever you'd like as long as your project is open-source aswell :)
