@@ -53,8 +53,8 @@ def generate_crew_data(crew_name: str) -> str:
     """Gather statistics of a crew using its name and organize them neatly into a message."""
     json_data = search(crew_name)
 
-    owner_username = requests.get(f"https://users.roblox.com/v1/users/{str(json_data['OwnerUserId']
-                                                                           )}").json()['name']
+    owner_username = requests.get(f"""https://users.roblox.com/v1/users/{str(json_data['OwnerUserId']
+                                                                           )}""").json()['name']
     crew_name = str(json_data["ClanName"])
     battles_played = str(json_data["BattlesPlayed"])
     battles_won = str(json_data["BattlesWon"])

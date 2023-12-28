@@ -25,7 +25,7 @@ path = f"storage/trading_{str(date.today())}.json"
 if not os.path.exists(path):
     data = requests.get(
         "https://badimo.nyc3.digitaloceanspaces.com/trade/frequency/snapshot/month/latest.json"
-        ).text.replace("'", '"')
+        ,timeout=10).text.replace("'", '"')
     with open(path, mode="w", encoding="UTF-8") as file:
         file.write(str(data))
 
