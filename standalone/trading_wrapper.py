@@ -29,20 +29,23 @@ if not os.path.exists(path):
     with open(path, mode="w", encoding="UTF-8") as file:
         file.write(str(data))
 
-file = open(path, encoding="UTF-8")
-loaded_file = json.load(file)
+with open(path, 'r', encoding="UTF-8") as f:
+    unloaded_data = f.read()
+    f.close()
+
+loaded_data = json.loads(unloaded_data)
 
 # Generates a list of every item in the game (can be used as a Choice menu in discord bots)
 item_list = []
 
-for obj in loaded_file:
+for obj in loaded_data:
     item_list.append(obj["name"])
 
 
 # Functions to search for items in the list and gather data; import and use these in your programs!
 def search(item: str) -> str | bytes | bytearray:
     """Gather statistics of a trading item using its name"""
-    for trading_object in loaded_file:
+    for trading_object in loaded_data:
         if trading_object["name"] == item:
             return trading_object
     return 404
