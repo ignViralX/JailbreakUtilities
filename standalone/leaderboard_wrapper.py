@@ -6,16 +6,17 @@ Copyright (c) 2023 ignViral
 
 This is a bare bones standalone wrapper for the Jailbreak Crew Leaderboard API.
 This file can be copy and pasted directly into a new location and it will function fine.
-If you plan on using the entire Jailbreak Utilities toolset, just import leaderboards from the module.
 
 TODO: Implement members & caching system to generateCrewData()
 TODO: Minor code quality improvements
 
 """
 
-import json, os, requests
+import json
+import os
+import requests
 from datetime import date
-from typing import Tuple, List, Any
+from typing import Any
 
 # On the first run, the storage folder won't exist, so the program will make it
 if not os.path.exists("storage/"):
