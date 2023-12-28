@@ -12,11 +12,11 @@ TODO: Minor code quality improvements
 
 """
 
+from datetime import date
+from typing import Any
 import json
 import os
 import requests
-from datetime import date
-from typing import Any
 
 # On the first run, the storage folder won't exist, so the program will make it
 if not os.path.exists("storage/"):
@@ -25,7 +25,8 @@ if not os.path.exists("storage/"):
 # Downloads a new dataset daily to account for updates or uses todays dataset if it already exists
 path = f"storage/leaderboards_{str(date.today())}.json"
 if not os.path.exists(path):
-    data = requests.get("https://badimo.nyc3.digitaloceanspaces.com/crew_leaderboard/snapshot/top/50/season/3/latest"
+    data = requests.get(
+        "https://badimo.nyc3.digitaloceanspaces.com/crew_leaderboard/snapshot/top/50/season/3/latest"
                         ".json").text
     with open(path, mode="w") as file:
         file.write(str(data))
@@ -49,10 +50,11 @@ def search(crew_name: str) -> str | bytes | bytearray:
 
 
 def generate_crew_data(crew_name: str) -> str:
-    """Gather statistics of a crew using its name and organize them neatly into a message to send"""
+    """Gather statistics of a crew using its name and organize them neatly into a message."""
     json_data = search(crew_name)
 
-    owner_username = requests.get(f"https://users.roblox.com/v1/users/{str(json_data['OwnerUserId'])}").json()['name']
+    owner_username = requests.get(f"https://users.roblox.com/v1/users/{str(json_data['OwnerUserId']
+                                                                           )}").json()['name']
     crew_name = str(json_data["ClanName"])
     battles_played = str(json_data["BattlesPlayed"])
     battles_won = str(json_data["BattlesWon"])
@@ -69,12 +71,13 @@ def generate_crew_data(crew_name: str) -> str:
     even that helpful to be able to view them on other applications, just convenient. I've put some
     useful segments of code below if you do wish to implement this system.
 
-    UserID to Username API endpoint: 'https://users.roblox.com/v1/users/{username}'; returns a JSON array with a 
-    "name" value in it. Add another file to storage/ like names.json where you can store IDs to Names and reference it 
-    before calling API to get a name from an ID Iterate through the 'MemberUserIds' value of the crew you are looking 
-    at for all of the member's IDs, check cache & then call API if the name isn't there. Append to the message by 
-    adding a line at the bottom **MEMBERS** » {','.join(member_usernames)} where member_usernames is your list of all 
-    the names"""
+    UserID to Username API endpoint: 'https://users.roblox.com/v1/users/{username}';
+    This returns a JSON array for the user with a 'name' value in it.
+    Add another file to storage/ like names.json where you can store IDs to Names and reference it 
+    before calling API to get a name from an ID Iterate through the 'MemberUserIds' value of the
+    crew you are looking at for all of the member's IDs, check cache & then call API if the name
+    isn't there. Append to the message by adding a line at the bottom **MEMBERS** »
+    {','.join(member_usernames)} where member_usernames is your list of all the names."""
 
     message = f"""
         **CREW NAME** » {crew_name}
@@ -82,7 +85,8 @@ def generate_crew_data(crew_name: str) -> str:
         **RATING** » {rating}\n
         **BATTLES WON (Season)** » {battles_won}/{battles_played} ({(int(battles_won) / int(battles_played)) * 100}% 
         win rate) -> This shows the amount of battles this crew has won out of the amount they have played, 
-        and their win percentage. Data limited to this season.\n **LATEST BATTLE (UTC)** » {last_battle_played} -> 
+        and their win percentage. Data limited to this season.\n
+        **LATEST BATTLE (UTC)** » {last_battle_played} -> 
         This displays the last time, in UTC, that this crew participated in a battle. Displayed in 
         YYYY-MM-DD_hh:mm:ss format.\n"""
 

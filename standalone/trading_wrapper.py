@@ -11,10 +11,10 @@ TODO: Minor code quality improvements
 
 """
 
+from datetime import date
 import json
 import os
 import requests
-from datetime import date
 
 # On the first run, the storage folder won't exist, so the program will make it
 if not os.path.exists("storage/"):
@@ -26,10 +26,10 @@ if not os.path.exists(path):
     data = requests.get(
         "https://badimo.nyc3.digitaloceanspaces.com/trade/frequency/snapshot/month/latest.json"
         ).text.replace("'", '"')
-    with open(path, mode="w") as file:
+    with open(path, mode="w", encoding="UTF-8") as file:
         file.write(str(data))
 
-file = open(path)
+file = open(path, encoding="UTF-8")
 loaded_file = json.load(file)
 
 # Generates a list of every item in the game (can be used as a Choice menu in discord bots)
@@ -45,6 +45,7 @@ def search(item: str) -> str | bytes | bytearray:
     for trading_object in loaded_file:
         if trading_object["name"] == item:
             return trading_object
+    return 404
 
 
 def generate_trading_data(item: str) -> str:
