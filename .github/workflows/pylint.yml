@@ -1,4 +1,4 @@
-name: Python Testing
+name: Pylint and Pytest
 on:
   push:
     branches: [ "main" ]
@@ -21,9 +21,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint pytest pytest-cov
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with pylint
+    - name: Analysing the code with pylint
       run: |
-        pylint src
+        pylint $(git ls-files '*.py')
       continue-on-error: false
     - name: Test with pytest
       run: |
