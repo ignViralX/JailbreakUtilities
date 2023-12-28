@@ -27,7 +27,7 @@ if not os.path.exists(path):
     data = requests.get(
         "https://badimo.nyc3.digitaloceanspaces.com/crew_leaderboard/snapshot/top/50/season/3/latest.json"
         ,timeout=10).text
-    
+
     with open(path, mode="w", encoding="UTF-8") as file:
         file.write(str(data))
 
