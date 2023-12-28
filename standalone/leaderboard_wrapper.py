@@ -9,7 +9,7 @@ This file can be copy and pasted directly into a new location and it will functi
 If you plan on using the entire Jailbreak Utilities toolset, just import leaderboards from the module, don't use this file.
 
 TODO: Implement members & caching system to generateCrewData()
-TODO: Format the UTC Latest Battle time to be more readable
+TODO: Minor code quality improvements
 
 """
 
@@ -52,19 +52,22 @@ def generateCrewData(crewName: str) -> str:
     battles_played = str(data["BattlesPlayed"])
     battles_won = str(data["BattlesWon"])
     rating = str(data["Rating"])
-    last_battle_played = str(data["LastBattlePlayedUTCStr"])
+    last_battle_played = str(data["LastBattlePlayedUTCStr"]).replace("_", " at ")
 
     """
     In this demo, "members" is not displayed, as you would need to convert all of the users IDs
     into usernames that are readable to people using this command, and the roblox API likely has
-    a rate limit on how often you can do this. I plan on implementing a caching system to manage
-    this in the future, but for now either implement it yourself or just use the other data!
+    a rate limit on how often you can do this. It is definitely possible if you implement a caching
+    system
 
     You can look up the members of a crew in-game but not some of the other statistics, so it isn't
-    even that helpful to be able to view them on other applications, just convenient.
+    even that helpful to be able to view them on other applications, just convenient. I've put some
+    useful segments of code below if you do wish to implement this system.
 
-    UserID to Username API endpoint: 'https://users.roblox.com/v1/users/{username}'; returns a JSON array with a "name" value
-    members = data["MemberUserIds"]
+    UserID to Username API endpoint: 'https://users.roblox.com/v1/users/{username}'; returns a JSON array with a "name" value in it
+    Add another file to storage/ like names.json where you can store IDs to Names and reference it before calling API to get a name from an ID
+    Iterate through the 'MemberUserIds' value of the crew you are looking at for all of the member's IDs, check cache & then call API if the name isnt there
+    Append to the message by adding a line at the bottom **MEMBERS** » {','.join(member_usernames)} where member_usernames is your list of all the names
     """
 
     message = f"""
@@ -78,3 +81,21 @@ def generateCrewData(crewName: str) -> str:
         """
 
     return message
+
+# Optional choice list to give the user when they are selecting their type of order
+choices = ['Rating', 'BattlesPlayed', 'BattlesWon']
+def fetchLatestLeaderboards(orderBy: str = 'BattlesWon') -> str | bytes | bytearray:
+    """Orders top 10 crews based on either Rating, WinPercentage, BattlesPlayed, or BattlesWon; defaults to BattlesWon. Returns two values, the first is the JSON arrays for the top 10 crews which you can use in your development, and the second is a nicely formatted leaderboards message that can be used to send to players."""
+   
+    # Sort the list of dictionaries in descending order based on 'value'
+    sorted_data = sorted(loaded_file, key=lambda x: x[orderBy], reverse=True)
+
+    # Get the top 10 players
+    top_10 = sorted_data[:10]
+
+    # Display the leaderboard
+    message = """"""
+    for i, crew in enumerate(top_10, start=1):
+        message = message + (f"#{i}: {crew['ClanName']} ({crew[orderBy]} {orderBy})\n")
+
+    return top_10, message

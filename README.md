@@ -1,5 +1,5 @@
 # Jailbreak Utilities
-[![Python 3.11.4](https://img.shields.io/badge/python-3.11.4-blue.svg)](https://www.python.org/downloads/release/python-3114/)
+[![Python 3.12.1](https://img.shields.io/badge/python-3.12.1-blue.svg)](https://www.python.org/downloads/release/python-3121/)
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/ignViralX/JailbreakUtilities)
 ![GitHub issues](https://img.shields.io/github/issues/ignViralX/JailbreakUtilities)
 ![GitHub License](https://img.shields.io/github/license/ignViralX/JailbreakUtilities)
@@ -26,7 +26,7 @@ This folder contains a full package in which you can import modules to use in yo
 - API wrappers for Trading and Crew Leaderboards API
 - Premade lists for things like every item in the game
 - Simple code that can be built upon in other applications
-- Example discord.py integrations for wrappers
+- Example discord embed integrations for wrappers
 - Documentation (coming soon)
 - Updates with new dataset releases from Jailbreak developers
 

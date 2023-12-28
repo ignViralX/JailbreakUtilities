@@ -8,6 +8,8 @@ This is a standalone wrapper for the Jailbreak Trading API.
 This file can be copy and pasted directly into a new location and it will function fine.
 If you plan on using the entire Jailbreak Utilities toolset, just import trading from the module, don't use this file.
 
+TODO: Minor code quality improvements
+
 """
 
 import json, os, requests
