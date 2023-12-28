@@ -1,7 +1,6 @@
 # Jailbreak Utilities
 [![Python 3.12.1](https://img.shields.io/badge/python-3.12.1-blue.svg)](https://www.python.org/downloads/release/python-3121/)
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/ignViralX/JailbreakUtilities)
-![GitHub issues](https://img.shields.io/github/issues/ignViralX/JailbreakUtilities)
 ![GitHub License](https://img.shields.io/github/license/ignViralX/JailbreakUtilities)
 
 This repository contains simple API wrappers and other tools for developing applications for the Jailbreak game. Coded entirely in Python utilizing JSON for storage. You can utilize this in programs like private discord bots for your crew to use and be more informed about the state of the game, or a website displaying leaderboards; whatever you want! Everything here is licensed under the MIT license so you may take and use whatever you'd like as long as your project is open-source aswell :)
@@ -31,8 +30,4 @@ This folder contains a full package in which you can import modules to use in yo
 
 ## Miscellaneous
 
-<<<<<<< Updated upstream
-This project is in no way associated with Jailbreak or any of its developers; this is a 3rd party API wrapper developed by ignViral for other developers to use in their applications. Created in June 2023, updated & made public in December 2023. Latest update `12/27/2023`; lists & functionality is kept up-to-date with the latest API releases and game changes.
-=======
 This project is in no way associated with Jailbreak or any of its developers; this is a 3rd party API wrapper & utility toolset developed by ignViral for other developers to use in their applications. Created in June 2023, updated & made public in December 2023. Latest update `12/28/2023`; lists & functionality is kept up-to-date with the latest API releases and game changes.
->>>>>>> Stashed changes
