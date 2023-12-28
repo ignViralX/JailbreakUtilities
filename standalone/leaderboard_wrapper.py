@@ -8,7 +8,6 @@ This is a bare bones standalone wrapper for the Jailbreak Crew Leaderboard API.
 This file can be copy and pasted directly into a new location and it will function fine.
 
 TODO: Implement members & caching system to generateCrewData()
-TODO: Minor code quality improvements
 
 """
 
@@ -25,9 +24,10 @@ if not os.path.exists("storage/"):
 # Downloads a new dataset daily to account for updates or uses todays dataset if it already exists
 path = f"storage/leaderboards_{str(date.today())}.json"
 if not os.path.exists(path):
-    data = requests.get("""
-        https://badimo.nyc3.digitaloceanspaces.com/crew_leaderboard/snapshot/top/50/season/3/latest
-                        .json""",timeout=10).text
+    data = requests.get(
+        "https://badimo.nyc3.digitaloceanspaces.com/crew_leaderboard/snapshot/top/50/season/3/latest.json"
+        ,timeout=10).text
+    
     with open(path, mode="w", encoding="UTF-8") as file:
         file.write(str(data))
 
@@ -90,11 +90,12 @@ def generate_crew_data(crew_name: str) -> str:
         **OWNER** » {owner_username}
         **RATING** » {rating}\n
         **BATTLES WON (Season)** » {battles_won}/{battles_played} ({win_rate}% WR)
-        win rate) -> This shows the amount of battles this crew has won out of the amount they have played, 
+        win rate) 
+        -> This shows the amount of battles this crew has won out of the amount they have played, 
         and their win percentage. Data limited to this season.\n
-        **LATEST BATTLE (UTC)** » {last_battle_played} -> 
-        This displays the last time, in UTC, that this crew participated in a battle. Displayed in 
-        YYYY-MM-DD_hh:mm:ss format.\n"""
+        **LATEST BATTLE (UTC)** » {last_battle_played}
+        -> This displays the last time, in UTC, that this crew participated in a battle.
+        Displayed in YYYY-MM-DD_hh:mm:ss format.\n"""
 
     return message
 
