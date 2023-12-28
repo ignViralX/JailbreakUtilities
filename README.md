@@ -6,9 +6,8 @@
 
 This repository contains simple API wrappers and other tools for developing applications for the Jailbreak game. Coded entirely in Python utilizing JSON for storage. You can utilize this in programs like private discord bots for your crew to use and be more informed about the state of the game, or a website displaying leaderboards; whatever you want! Everything here is licensed under the MIT license so you may take and use whatever you'd like as long as your project is open-source aswell :)
 
-(!) This repository is actively under development. It will be complete within 24 hours.
-- Standalone currently has both API wrappers complete but some have minor changes to be made. Other utilities are to be added.
-- Package is still in its starting stages and will be implemented fully tomorrow.
+(!) This repository is actively under development.
+- The Jailbreak Utilities Package is incomplete and being worked on. Everything here now is standalone and finished.
 
 ## Quick Start
 
@@ -17,7 +16,7 @@ This repository is divided into two folders.
 > Standalone
 
 This folder contains standalone wrappers and tools that can be directly copied and pasted into your own code and function seamlessly. They are built to function just out of their file and do not have any other hard file dependencies. Look in this folder if you are just looking for inspiration or to take some scripts for yourself.
-> Package
+> Package (COMING SOON)
 
 This folder contains a full package in which you can import modules to use in your program. You can downlad this folder via the Github Releases tab and import modules you need from the files; they work together to function more dynamically but rely on each other, so you cannot copy one file into your code and expect it to work flawlessly.
 
@@ -32,4 +31,8 @@ This folder contains a full package in which you can import modules to use in yo
 
 ## Miscellaneous
 
+<<<<<<< Updated upstream
 This project is in no way associated with Jailbreak or any of its developers; this is a 3rd party API wrapper developed by ignViral for other developers to use in their applications. Created in June 2023, updated & made public in December 2023. Latest update `12/27/2023`; lists & functionality is kept up-to-date with the latest API releases and game changes.
+=======
+This project is in no way associated with Jailbreak or any of its developers; this is a 3rd party API wrapper & utility toolset developed by ignViral for other developers to use in their applications. Created in June 2023, updated & made public in December 2023. Latest update `12/28/2023`; lists & functionality is kept up-to-date with the latest API releases and game changes.
+>>>>>>> Stashed changes

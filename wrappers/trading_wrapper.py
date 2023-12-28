@@ -7,8 +7,6 @@ Copyright (c) 2023 ignViral
 This is a standalone wrapper for the Jailbreak Trading API.
 This file can be copy and pasted directly into a new location and it will function fine.
 
-TODO: Minor code quality improvements
-
 """
 
 from datetime import date
