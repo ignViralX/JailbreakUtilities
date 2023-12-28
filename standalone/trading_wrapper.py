@@ -55,13 +55,14 @@ def generate_trading_data(item: str) -> str:
     """Gather statistics of a trading item using its name and organize
     them neatly into a message to send"""
     search_result = search(item)
-    item_type = str(search_result["type"])
+    print(search_result)
+    item_type = str(search_result["Type"])
 
     name = str(search_result["name"])
     wiki_name = name.replace(" ", "_")
     times_traded = str(search_result["TimesTraded"])
     unique_circulation = str(search_result["UniqueCirculation"])
-    demand_multiple = str(search_result["demand_multiple"])
+    demand_multiple = str(search_result["DemandMultiple"])
 
     message = f"""
         **ITEM type** » {item_type}
