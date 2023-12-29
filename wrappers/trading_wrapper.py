@@ -7,8 +7,6 @@ Copyright (c) 2023 ignViral
 This is a standalone wrapper for the Jailbreak Trading API.
 This file can be copy and pasted directly into a new location and it will function fine.
 
-TODO: Minor code quality improvements
-
 """
 
 from datetime import date
@@ -39,14 +37,14 @@ loaded_data = json.loads(unloaded_data)
 item_list = []
 
 for obj in loaded_data:
-    item_list.append(obj["name"])
+    item_list.append(obj["Name"])
 
 
 # Functions to search for items in the list and gather data; import and use these in your programs!
 def search(item: str) -> str | bytes | bytearray:
     """Gather statistics of a trading item using its name"""
     for trading_object in loaded_data:
-        if trading_object["name"] == item:
+        if trading_object["Name"] == item:
             return trading_object
     return 404
 
@@ -58,7 +56,7 @@ def generate_trading_data(item: str) -> str:
     print(search_result)
     item_type = str(search_result["Type"])
 
-    name = str(search_result["name"])
+    name = str(search_result["Name"])
     wiki_name = name.replace(" ", "_")
     times_traded = str(search_result["TimesTraded"])
     unique_circulation = str(search_result["UniqueCirculation"])
