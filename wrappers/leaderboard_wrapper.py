@@ -27,7 +27,7 @@ if not os.path.exists(path):
     data = requests.get(
         "https://badimo.nyc3.digitaloceanspaces.com/crew_leaderboard/snapshot/top/50/season/3/latest.json"
         ,timeout=10).text
-    
+
     with open(path, mode="w", encoding="UTF-8") as file:
         file.write(str(data))
 
@@ -86,9 +86,8 @@ choices = ['Rating', 'BattlesPlayed', 'BattlesWon']
 
 
 def fetch_latest_leaderboards(order_by: str = 'BattlesWon') -> tuple[list[Any], str | Any]:
-    """Orders top 10 crews based on either Rating, WinPercentage, BattlesPlayed, or BattlesWon; defaults to
-    BattlesWon. Returns two values, the first is the JSON arrays for the top 10 crews which you can use in your
-    development, and the second is a nicely formatted leaderboards message that can be used to send to players."""
+    """Orders the top 10 crews based on Rating, BattlesWon (default), or BattlesPlayed.
+    Returns JSON arrays for the top 10 & a nicely formatted message that can easily be sent."""
 
     # Sort the list of dictionaries in descending order based on 'value'
     sorted_data = sorted(loaded_data, key=lambda x: x[order_by], reverse=True)
