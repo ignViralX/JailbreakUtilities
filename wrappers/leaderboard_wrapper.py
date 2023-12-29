@@ -101,3 +101,4 @@ def fetch_latest_leaderboards(order_by: str = 'BattlesWon') -> tuple[list[Any], 
         message = message + f"#{i}: {crew['ClanName']} ({crew[order_by]} {order_by})\n"
 
     return top_10, message
+
