@@ -65,6 +65,25 @@ def generate_crew_data(crew_name: str) -> str:
     rating = str(json_data["Rating"])
     last_battle_played = str(json_data["LastBattlePlayedUTCStr"]).replace("_", " at ")
 
+    """
+    In this demo, "members" is not displayed, as you would need to convert all of the users IDs
+    into usernames that are readable to people using this command, and the roblox API likely has
+    a rate limit on how often you can do this. It is definitely possible if you implement a caching
+    system
+
+    You can look up the members of a crew in-game but not some of the other statistics, so it isn't
+    even that helpful to be able to view them on other applications, just convenient. I've put some
+    useful segments of code below if you do wish to implement this system.
+
+    UserID to Username API endpoint: 'https://users.roblox.com/v1/users/{username}';
+    This returns a JSON array for the user with a 'name' value in it.
+    Add another file to storage/ like names.json where you can store IDs to Names and reference it 
+    before calling API to get a name from an ID Iterate through the 'MemberUserIds' value of the
+    crew you are looking at for all of the member's IDs, check cache & then call API if the name
+    isn't there. Append to the message by adding a line at the bottom **MEMBERS** »
+    {','.join(member_usernames)} where member_usernames is your list of all the names.
+    """
+
     win_rate = int(battles_won) / int(battles_played) * 100
     message = f"""
         **CREW NAME** » {crew_name}
@@ -86,8 +105,9 @@ choices = ['Rating', 'BattlesPlayed', 'BattlesWon']
 
 
 def fetch_latest_leaderboards(order_by: str = 'BattlesWon') -> tuple[list[Any], str | Any]:
-    """Orders top 10 crews based on either Rating, WinPercentage, BattlesPlayed, or BattlesWon.
-    Returns the Top 10 crews JSON arrays and then a nicely formatted leaderboard message."""
+    """Orders top 10 crews based on either Rating, WinPercentage, BattlesPlayed, or BattlesWon; defaults to
+    BattlesWon. Returns two values, the first is the JSON arrays for the top 10 crews which you can use in your
+    development, and the second is a nicely formatted leaderboards message that can be used to send to players."""
 
     # Sort the list of dictionaries in descending order based on 'value'
     sorted_data = sorted(loaded_data, key=lambda x: x[order_by], reverse=True)
@@ -101,4 +121,3 @@ def fetch_latest_leaderboards(order_by: str = 'BattlesWon') -> tuple[list[Any], 
         message = message + f"#{i}: {crew['ClanName']} ({crew[order_by]} {order_by})\n"
 
     return top_10, message
-
