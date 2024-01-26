@@ -5,6 +5,8 @@
 
 This repository contains simple API wrappers and other tools for developing applications for the Jailbreak game. Coded entirely in Python utilizing JSON for storage. You can utilize this in programs like private discord bots for your crew to use and be more informed about the state of the game, or a website displaying leaderboards; whatever you want! Everything here is licensed under the MIT license so you may take and use whatever you'd like as long as your project is open-source aswell :)
 
+**NOTE:** The latest vehicle additions, the Carbonara (limited) and Frostcrawler (seasonal), do not yet appear to be in the API. They will be added to this repositories static lists once they are added in the next monthly trading API refresh.
+
 ## Quick Start
 
 The only required installations to utilize this repository is `python3`
