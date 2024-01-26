@@ -8,10 +8,8 @@ This repository contains simple API wrappers and other tools for developing appl
 ## Quick Start
 
 The only required installations to utilize this repository is `python3`
-This repository is divided into two folders.
-> Standalone
 
-This folder contains standalone wrappers and tools that can be directly copied and pasted into your own code and function seamlessly. They are built to function just out of their file and do not have any other hard file dependencies. Look in this folder if you are just looking for inspiration or to take some scripts for yourself.
+This repository contains standalone wrappers and tools that can be directly copied and pasted into your own code and function seamlessly. They are built to function just out of their file and do not have any other hard file dependencies, thus making it great for finding inspiration or just getting quick code excerpts.
 
 ## Features
 
@@ -24,4 +22,4 @@ This folder contains standalone wrappers and tools that can be directly copied a
 
 ## Miscellaneous
 
-This project is in no way associated with Jailbreak or any of its developers; this is a 3rd party API wrapper & utility toolset developed by ignViral for other developers to use in their applications. Created in June 2023, updated & made public in December 2023. Latest update `12/28/2023`; lists & functionality is kept up-to-date with the latest API releases and game changes.
+This project is in no way associated with Jailbreak or any of its developers; this is a 3rd party API wrapper & utility toolset developed by ignViral for other developers to use in their applications. Created in June 2023, updated & made public in December 2023. Latest update `1/25/2023`; lists & functionality is kept up-to-date with the latest API releases and game changes.
