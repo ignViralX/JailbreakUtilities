@@ -7,14 +7,11 @@ This repository contains simple API wrappers and other tools for developing appl
 
 ## Quick Start
 
-The only required installations to utilize this repository is `python3` (and `discord.py` if you are using the examples for it)
+The only required installations to utilize this repository is `python3`
 This repository is divided into two folders.
 > Standalone
 
 This folder contains standalone wrappers and tools that can be directly copied and pasted into your own code and function seamlessly. They are built to function just out of their file and do not have any other hard file dependencies. Look in this folder if you are just looking for inspiration or to take some scripts for yourself.
-> Package (COMING SOON)
-
-This folder contains a full package in which you can import modules to use in your program. You can downlad this folder via the Github Releases tab and import modules you need from the files; they work together to function more dynamically but rely on each other, so you cannot copy one file into your code and expect it to work flawlessly. Installed via PyPi.
 
 ## Features
 
