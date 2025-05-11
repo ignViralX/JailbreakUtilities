@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2023 ignViral
+Copyright (c) 2025 ignViral
 
 This is a bare bones standalone wrapper for the Jailbreak Crew Leaderboard API.
 This file can be copy and pasted directly into a new location and it will function fine.

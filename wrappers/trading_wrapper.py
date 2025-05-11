@@ -2,7 +2,7 @@
 
 MIT License
 
-Copyright (c) 2023 ignViral
+Copyright (c) 2025 ignViral
 
 This is a standalone wrapper for the Jailbreak Trading API.
 This file can be copy and pasted directly into a new location and it will function fine.
@@ -63,9 +63,9 @@ def generate_trading_data(item: str) -> str:
     demand_multiple = str(search_result["DemandMultiple"])
 
     message = f"""
-        **ITEM type** » {item_type}
-        **ITEM name** » {name}
-        **ITEM WIKI** » https://jailbreak.fandom.com/wiki/{wiki_name}\n
+        **Item Type** » {item_type}
+        **Item Name** » {name}
+        **Item Wiki** » https://jailbreak.fandom.com/wiki/{wiki_name}\n
         **TIMES TRADED (Last 30d)** » {times_traded} copies -> Times Traded (TT) is the amount of times this item has 
         been traded in the last month. Useful in collection for other metrics & calculating demand/rarity. (see 
         below)\n
