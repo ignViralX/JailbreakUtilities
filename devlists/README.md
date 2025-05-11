@@ -1,1 +1,0 @@
-This folder contains useful lists for development of Jailbreak applications. Static lists are manually updated every time there is a new Github Release, and dynamic lists update themselves daily. Each file contains both a static list and dynamic list, seperated by comments.
