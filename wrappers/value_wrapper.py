@@ -7,6 +7,8 @@ Copyright (c) 2025 ignViral
 This is a standalone wrapper for the Jailbreak Trading API.
 This file can be copy and pasted directly into a new location and it will function fine.
 
+** Values are based on the JBValues API **
+
 """
 
 import requests
